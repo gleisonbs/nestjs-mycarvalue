@@ -63,7 +63,7 @@ export class UsersController {
   }
 
   @Get('/:id')
-  async findUsed(@Param('id') id: string) {
+  async findUser(@Param('id') id: string) {
     const user = await this.userService.findOne(parseInt(id));
     if (!user) {
       throw new NotFoundException('user not found');
@@ -73,7 +73,7 @@ export class UsersController {
   }
 
   @Get()
-  findAllUser(@Query('email') email: string) {
+  findAllUsers(@Query('email') email: string) {
     return this.userService.find(email);
   }
 
